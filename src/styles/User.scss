@@ -1,0 +1,20 @@
+.user-wrapper {
+    max-width: 1330px;
+    margin: 20px auto;
+    transition: transform .2s;
+}
+
+.user-wrapper:hover {
+    // transform: scale(1.02); 
+  }
+
+img {
+    @apply h-44;	
+}
+
+.liked {
+    color: red;
+}
+.spinner-wrapper {
+    margin: 40vh auto 0;
+}
