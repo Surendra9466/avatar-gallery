@@ -23,7 +23,6 @@ function ModalPop({ id, data, setData }) {
             }
             return item
         })
-        console.log(tempUserData);
         setData(tempData);
     };
 

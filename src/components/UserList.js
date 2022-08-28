@@ -19,9 +19,7 @@ function UserList() {
     }
 
     useEffect(() => {
-        setTimeout(()=>{
-            fetchApi();
-        },1000)
+        fetchApi();
     }, []);
 
     const deleteElement = (id) => {
