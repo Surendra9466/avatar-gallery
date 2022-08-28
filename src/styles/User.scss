@@ -2,6 +2,10 @@
     max-width: 1330px;
     margin: 100px auto 20px;
     transition: transform .2s;
+
+    @media (min-width: 1328px) {
+        justify-content: unset;
+    }
 }
 
 .user-wrapper:hover {

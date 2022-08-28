@@ -28,7 +28,7 @@ function SingleUser({ user, deleteElement, data, setData}) {
         <div className='cursor-pointer flex items-center liked' onClick={() => { setLike(!like) }}>
           {like ? <HeartFilled /> : <HeartOutlined />}
         </div>
-        <ModalPop id={user.id} data={data} setData={setData}/>
+        <ModalPop id={user.id} data={data} setData={setData} user={user}/>
         <DeleteFilled className='delete cursor-pointer' onClick={() => deleteElement(user.id)} />
       </div>
     </div>
