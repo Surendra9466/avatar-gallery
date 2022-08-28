@@ -1,20 +1,41 @@
 .user-wrapper {
     max-width: 1330px;
-    margin: 20px auto;
+    margin: 100px auto 20px;
     transition: transform .2s;
 }
 
 .user-wrapper:hover {
     // transform: scale(1.02); 
-  }
+}
 
 img {
-    @apply h-44;	
+    @apply h-44;
 }
 
 .liked {
     color: red;
 }
+
 .spinner-wrapper {
     margin: 40vh auto 0;
+}
+
+@media (min-width: 624px) {
+    .card {
+        @apply mr-8;
+    }
+}
+
+.delete {
+    transition: 0.2s;
+}
+
+.delete:hover {
+    color: #1890ff;
+}
+
+.empty-msg {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
 }

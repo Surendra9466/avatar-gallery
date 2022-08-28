@@ -7,3 +7,20 @@
   margin: 0;
   padding: 0;
 }
+
+.header {
+  margin: 0 auto;
+  @apply px-6 py-3;
+  max-width: 1330px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.header-wrapper {
+  background-color: #E5E5E5;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
