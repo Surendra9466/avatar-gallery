@@ -13,8 +13,13 @@ function ModalPop({ id, user, data, setData }) {
     const showModal = () => {
         setIsModalVisible(true);
     };
-    console.log(userData)
     const handleOk = (id) => {
+
+        if(userData.name==="" || userData.email==="" || userData.phone==="" || userData.website==="") {
+            alert('required field is empty');
+            return;
+        }
+
         setIsModalVisible(false);
         const tempData = data.map((item) => {
             if (item.id === id) {
@@ -31,49 +36,9 @@ function ModalPop({ id, user, data, setData }) {
 
     const handleData = (e) => {
         const key = e.target.id;
-        console.log(key)
-        
-        // setUserData((prev) => {
-        //     return {
-        //         ...prev,
-        //         key: e.target.value
-        //     }
-        // })
-
-        if (e.target.id === 'name') {
-            setUserData((prev) => {
-                return {
-                    ...prev,
-                    name: e.target.value
-                }
-            })
-        }
-        else if (e.target.id === 'email') {
-            setUserData((prev) => {
-                return {
-                    ...prev,
-                    email: e.target.value
-                }
-            })
-        }
-        else if (e.target.id === 'phone') {
-            setUserData((prev) => {
-                return {
-                    ...prev,
-                    phone: e.target.value
-                }
-            })
-        }
-        else if (e.target.id === 'website') {
-            setUserData((prev) => {
-                return {
-                    ...prev,
-                    website: e.target.value
-                }
-            })
-        } else {
-            console.log('Error: Unknown data');
-        }
+        const obj = {...userData};
+        obj[key] = e.target.value;
+        setUserData(obj)
     }
 
     return (
@@ -85,23 +50,22 @@ function ModalPop({ id, user, data, setData }) {
                 <Form name="basic"
                     labelCol={{ span: 3 }}
                     wrapperCol={{ span: 20 }}
-                    initialValues={{ remember: true }}
                     autoComplete="off"
                 >
-                    <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please input your username!' }]}>
-                        <Input id="name" type="name" placeholder='Ervin Howell' onChange={handleData} value={userData.name} />
+                    <Form.Item label="Name" name="name" value={userData.name} rules={[{ required: true, message: 'Please input your username!' }]}>
+                        <Input id="name" type="name" placeholder={userData.name} onChange={handleData}  />
                     </Form.Item>
 
                     <Form.Item label="email" name="useremail" rules={[{ required: true, type: 'email', message: 'Please input your email!' }]}>
-                        <Input id="email" type="email" placeholder='Shanna@melissa.tv' onChange={handleData} value={userData.email} />
+                        <Input id="email" type="email" placeholder={userData.email} onChange={handleData} value={userData.email} />
                     </Form.Item>
 
                     <Form.Item label="Phone" name="phone" rules={[{ required: true, message: 'Please input your phone!' }]}>
-                        <Input id="phone" type="phone" placeholder='010-692-6593 x09125' onChange={handleData} value={userData.phone} />
+                        <Input id="phone" type="phone" placeholder={userData.phone} onChange={handleData} value={userData.phone} />
                     </Form.Item>
 
                     <Form.Item label="Web" name="website" rules={[{ required: true, message: 'Please input your website!' }]}>
-                        <Input id="website" type="website" placeholder='anastasia.net' onChange={handleData} value={userData.website} />
+                        <Input id="website" type="website" placeholder={userData.website} onChange={handleData} value={userData.website} />
                     </Form.Item>
                 </Form>
             </Modal>
